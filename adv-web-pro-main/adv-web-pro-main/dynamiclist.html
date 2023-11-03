@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <h1>Dynamic List</h1> 
+    <div id="app">
+        <!-- {{ msg }} -->
+        <button type="" @click="addList">add list</button>&nbsp;&nbsp;
+        <button type="" @click="popList">pop list</button>
+        <div>
+            <ul>
+                <li v-for="item in lt">{{ item }}</li>
+            </ul>
+        </div>
+        
+    </div>
+</body>
+<script>
+  const { createApp, ref } = Vue
+  
+    createApp({
+      data() {
+        return {
+          msg: 'dinamic lisst',
+          lt: [1,2,3],
+        }
+      },
+      methods: {
+        addList(){
+            var last = this.lt.length +1;
+            this.lt.push(last);
+        },
+        popList(){
+            var last =  this.lt.length;
+            this.lt.pop(last);
+         
+      }
+      }
+
+    }).mount('#app')
+    
+  
+</script>
+</html>
